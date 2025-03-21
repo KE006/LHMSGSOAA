@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Own an Airline</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>Own an Airline</h1>
+            <div id="airline-info">
+                <span id="airline-name">Your Airline</span>
+                <span id="airline-cash">$100,000,000</span>
+            </div>
+            <nav>
+                <button id="nav-setup" class="nav-button active">Airline Setup</button>
+                <button id="nav-fleet" class="nav-button">Fleet Management</button>
+                <button id="nav-map" class="nav-button">World Map</button>
+                <button id="nav-market" class="nav-button">Aircraft Market</button>
+            </nav>
+        </header>
+        
+        <main id="game-content">
+            <!-- Content will be loaded here dynamically -->
+        </main>
+    </div>
+
+    <!-- Templates -->
+    <template id="setup-template">
+        <div id="setup-screen">
+            <h2>Customize Your Airline</h2>
+            <div class="form-group">
+                <label for="airline-name-input">Airline Name:</label>
+                <input type="text" id="airline-name-input" placeholder="Enter airline name">
+            </div>
+            <div class="form-group">
+                <label for="airline-code">Airline Code (2 letters):</label>
+                <input type="text" id="airline-code-input" maxlength="2" placeholder="e.g. BA">
+            </div>
+            <div class="form-group">
+                <label for="hub-select">Main Hub:</label>
+                <select id="hub-select">
+                    <option value="LHR">London Heathrow (LHR)</option>
+                    <option value="JFK">New York JFK (JFK)</option>
+                    <option value="LAX">Los Angeles (LAX)</option>
+                    <option value="DXB">Dubai (DXB)</option>
+                    <option value="SIN">Singapore (SIN)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Airline Colors:</label>
+                <input type="color" id="primary-color" value="#0066CC">
+                <input type="color" id="secondary-color" value="#FFFFFF">
+            </div>
+            <button id="save-airline-btn">Start Your Airline</button>
+        </div>
+    </template>
+
+    <template id="fleet-template">
+        <div id="fleet-screen">
+            <h2>Fleet Management</h2>
+            <div id="fleet-list">
+                <!-- Aircraft will be listed here -->
+            </div>
+            <div id="aircraft-details">
+                <h3>Aircraft Details</h3>
+                <div id="selected-aircraft-info">
+                    <p>Select an aircraft to view details</p>
+                </div>
+                <div id="crew-assignment" class="hidden">
+                    <h4>Assign Crew</h4>
+                    <div class="form-group">
+                        <label for="pilot-select">Pilot:</label>
+                        <select id="pilot-select"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="copilot-select">Co-Pilot:</label>
+                        <select id="copilot-select"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cabin-crew-count">Cabin Crew:</label>
+                        <input type="number" id="cabin-crew-count" min="0" max="20">
+                    </div>
+                    <button id="assign-crew-btn">Assign Crew</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="map-template">
+        <div id="map-screen">
+            <h2>World Map</h2>
+            <div id="world-map">
+                <!-- Map will be displayed here -->
+                <div class="map-placeholder">
+                    <p>World map with your aircraft will be displayed here</p>
+                </div>
+            </div>
+            <div id="active-flights">
+                <h3>Active Flights</h3>
+                <ul id="flights-list">
+                    <!-- Active flights will be listed here -->
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <template id="market-template">
+        <div id="market-screen">
+            <h2>Aircraft Market</h2>
+            <div id="available-aircraft">
+                <!-- Available aircraft will be listed here -->
+            </div>
+        </div>
+    </template>
+
+    <script src="game.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+</html> 
